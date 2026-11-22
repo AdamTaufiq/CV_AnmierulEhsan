@@ -2,4 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html/
+    - /usr/bin/find "$DEPLOYPATH" -mindepth 1 -maxdepth 1 ! -name .well-known -exec /bin/rm -rf {} +
     - /bin/cp -R dist/. "$DEPLOYPATH"
